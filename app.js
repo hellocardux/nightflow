@@ -1341,7 +1341,7 @@ function renderSetupView() {
         <p>${t("setupNamesHint")}</p>
         <div class="field">
           <label>${t("playerNames")}</label>
-          <textarea class="input" rows="8" data-field="namesInput" placeholder="Alice&#10;Bob&#10;Carla">${escapeHtml(state.setup.namesInput)}</textarea>
+          <textarea class="input" rows="8" data-field="namesInput" placeholder="Massimo&#10;Alex&#10;Kenan">${escapeHtml(state.setup.namesInput)}</textarea>
           <div id="setup-player-count" class="tiny">${tf("playersCount", { count })}</div>
         </div>
         <div class="grid two">
@@ -1380,13 +1380,12 @@ function renderSetupView() {
 
       <section class="card">
         <h3>${t("archive")}</h3>
-        ${
-          state.archive.length === 0
-            ? `<p class="muted">${t("noArchive")}</p>`
-            : `<div class="archive-list">
+        ${state.archive.length === 0
+      ? `<p class="muted">${t("noArchive")}</p>`
+      : `<div class="archive-list">
                 ${state.archive
-                  .map(
-                    (g) => `<div class="row">
+        .map(
+          (g) => `<div class="row">
                       <div class="stack">
                         <strong>${escapeHtml(g.title || t("gameTitleFallback"))}</strong>
                         <span class="tiny">${formatDate(g.updatedAt)} · ${phaseLabel(g.phase)}</span>
@@ -1397,66 +1396,63 @@ function renderSetupView() {
                         <button class="danger" data-action="delete-game" data-game-id="${g.id}">${t("delete")}</button>
                       </div>
                     </div>`,
-                  )
-                  .join("")}
+        )
+        .join("")}
               </div>`
-        }
+    }
       </section>
 
-      ${
-        preview
-          ? `<section class="card">
+      ${preview
+      ? `<section class="card">
               <h3>${t("setupPreview")}</h3>
               <div class="field">
                 <label>${t("template")}</label>
                 <select data-field="selectedTemplateId">
                   ${preview.options
-                    .map((o) => `<option value="${o.id}" ${preview.chosenId === o.id ? "selected" : ""}>${o.label}</option>`)
-                    .join("")}
+        .map((o) => `<option value="${o.id}" ${preview.chosenId === o.id ? "selected" : ""}>${o.label}</option>`)
+        .join("")}
                 </select>
               </div>
-              ${
-                selectedOption
-                  ? `<div class="grid two">
+              ${selectedOption
+        ? `<div class="grid two">
                       <div>
                         <p class="summary"><strong>${t("composition")}</strong></p>
                         <div class="role-list">${compositionRows(selectedOption.composition)}</div>
                       </div>
                       <div>
                         <p class="summary"><strong>${t("warnings")}</strong></p>
-                        ${
-                          selectedOption.warnings.length
-                            ? selectedOption.warnings.map((w) => `<div class="warning tiny">${escapeHtml(w)}</div>`).join("")
-                            : `<p class="tiny ok">${t("noWarnings")}</p>`
-                        }
+                        ${selectedOption.warnings.length
+          ? selectedOption.warnings.map((w) => `<div class="warning tiny">${escapeHtml(w)}</div>`).join("")
+          : `<p class="tiny ok">${t("noWarnings")}</p>`
+        }
                       </div>
                     </div>`
-                  : ""
-              }
+        : ""
+      }
               <div class="btn-row" style="margin-top:.8rem">
                 <button data-action="reroll-roles">${t("rerollRoles")}</button>
               </div>
               <div class="player-list" style="margin-top:.8rem">
                 ${preview.assignments
-                  .sort((a, b) => a.seatIndex - b.seatIndex)
-                  .map(
-                    (a) => `<div class="row">
+        .sort((a, b) => a.seatIndex - b.seatIndex)
+        .map(
+          (a) => `<div class="row">
                       <strong class="role-inline">${roleIconHtml(a.roleId, "sm")}${a.seatIndex + 1}. ${escapeHtml(a.name)}</strong>
                       <select data-action="change-assignment-role" data-player-id="${a.id}">
                         ${Object.values(ROLE_DEFS)
-                          .map((r) => `<option value="${r.id}" ${a.roleId === r.id ? "selected" : ""}>${roleName(r.id)}</option>`)
-                          .join("")}
+              .map((r) => `<option value="${r.id}" ${a.roleId === r.id ? "selected" : ""}>${roleName(r.id)}</option>`)
+              .join("")}
                       </select>
                     </div>`,
-                  )
-                  .join("")}
+        )
+        .join("")}
               </div>
               <div class="btn-row" style="margin-top:1rem">
                 <button class="primary" data-action="start-game">${t("start")}</button>
               </div>
             </section>`
-          : ""
-      }
+      : ""
+    }
     </div>
   `;
 }
@@ -1559,22 +1555,22 @@ function renderVote1(game) {
 
     <div class="vote-list" style="margin-top:.8rem">
       ${voters
-        .map((voter, i) => {
-          const selectedTargetId = votesMap.get(voter.id) || "";
-          return `<div class="row">
+      .map((voter, i) => {
+        const selectedTargetId = votesMap.get(voter.id) || "";
+        return `<div class="row">
             <span><strong>${i + 1}. ${escapeHtml(voter.name)}</strong></span>
             <select data-action="set-vote1-target" data-voter-id="${voter.id}">
               <option value="">${t("selectTarget")}</option>
               ${targets
-                .map(
-                  (target) =>
-                    `<option value="${target.id}" ${selectedTargetId === target.id ? "selected" : ""}>${escapeHtml(target.name)}</option>`,
-                )
-                .join("")}
+            .map(
+              (target) =>
+                `<option value="${target.id}" ${selectedTargetId === target.id ? "selected" : ""}>${escapeHtml(target.name)}</option>`,
+            )
+            .join("")}
             </select>
           </div>`;
-        })
-        .join("")}
+      })
+      .join("")}
     </div>
 
     <div class="tiny">${t("missingVotes")}: ${remaining}</div>
@@ -1626,15 +1622,15 @@ function renderPlayersPanel(game) {
       <h3>${t("players")}</h3>
       <div class="player-list">
         ${players
-          .map((p) => {
-            const roleText = locked ? "?" : roleName(effectiveRoleId(p));
-            const roleIcon = locked
-              ? `<span class="role-icon role-icon-generic role-icon-sm" data-fallback="?" aria-hidden="true"></span>`
-              : roleIconHtml(effectiveRoleId(p), "sm");
-            const statusText = p.status === "Alive" ? t("alive") : p.status === "Dead" ? t("dead") : t("ghost");
-            const statusClass = p.status.toLowerCase();
-            const ben = game.benvenutoPlayerId === p.id ? `<span class="badge benvenuto">${t("benvenuto")}</span>` : "";
-            return `<div class="row">
+      .map((p) => {
+        const roleText = locked ? "?" : roleName(effectiveRoleId(p));
+        const roleIcon = locked
+          ? `<span class="role-icon role-icon-generic role-icon-sm" data-fallback="?" aria-hidden="true"></span>`
+          : roleIconHtml(effectiveRoleId(p), "sm");
+        const statusText = p.status === "Alive" ? t("alive") : p.status === "Dead" ? t("dead") : t("ghost");
+        const statusClass = p.status.toLowerCase();
+        const ben = game.benvenutoPlayerId === p.id ? `<span class="badge benvenuto">${t("benvenuto")}</span>` : "";
+        return `<div class="row">
               <div class="stack">
                 <strong class="role-inline">${roleIcon}${p.seatIndex + 1}. ${escapeHtml(p.name)}</strong>
                 <span class="tiny">${t("role")}: ${escapeHtml(roleText)}</span>
@@ -1644,8 +1640,8 @@ function renderPlayersPanel(game) {
                 ${ben}
               </div>
             </div>`;
-          })
-          .join("")}
+      })
+      .join("")}
       </div>
     </section>
   `;
@@ -1656,15 +1652,14 @@ function renderLogPanel(game) {
   return `
     <section class="card">
       <h3>${t("log")}</h3>
-      ${
-        locked
-          ? `<div class="hidden-secret">${t("protectedContent")}</div>`
-          : `<div class="log-list">${[...game.eventLog]
-              .reverse()
-              .slice(0, 25)
-              .map((e) => `<div class="row tight"><div class="stack"><strong>${escapeHtml(e.type)}</strong><span class="tiny">${formatDate(e.timestamp)}</span></div></div>`)
-              .join("")}</div>`
-      }
+      ${locked
+      ? `<div class="hidden-secret">${t("protectedContent")}</div>`
+      : `<div class="log-list">${[...game.eventLog]
+        .reverse()
+        .slice(0, 25)
+        .map((e) => `<div class="row tight"><div class="stack"><strong>${escapeHtml(e.type)}</strong><span class="tiny">${formatDate(e.timestamp)}</span></div></div>`)
+        .join("")}</div>`
+    }
       <div class="btn-row" style="margin-top:.8rem">
         <button data-action="export-current">${t("export")}</button>
         <button class="warn" data-action="undo-last">${t("undo")}</button>
