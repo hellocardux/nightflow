@@ -1,8 +1,12 @@
-﻿# Nightflow (Cardux In Tabula) 🐺🌙
+﻿# Nightflow | The Werewolf Engine 🐺🌙
 
-![App Icon](icons/icon.svg)
+<div align="center">
+  <img src="assets/cover/nightflow-cover.jpg" alt="Nightflow Cover" width="100%">
+  <br><br>
+  <img src="icons/icon.svg" alt="App Icon" width="64">
+</div>
 
-**Nightflow** (precedentemente *Cardux In Tabula*) è un'applicazione web mobile-first pensata per agire come **Assistente Moderatore** nelle partite dal vivo del noto party-game a ruoli nascosti (stile *Lupus in Tabula* o *Werewolf*).
+**Nightflow** è un'applicazione web mobile-first pensata per agire come **Assistente Moderatore** nelle partite dal vivo del noto party-game a ruoli nascosti (stile *Lupus in Tabula* o *Werewolf*).
 
 Il progetto nasce con l'obiettivo di snellire drasticamente il lavoro del narratore (moderatore) eliminando carta, penna e confusione durante le delicate fasi notturne, garantendo precisione nel tally dei voti e nell'applicazione delle regole speciali.
 
@@ -49,7 +53,6 @@ Questo progetto adotta deliberatamente un approccio **Zero-Build, Vanilla JS** m
 
 *   **Unico JavaScript** (\pp.js\): Nessun framework tipo React, Vue o Svelte. L'intera logica (stato interno, rendering DOM, regole e traduzioni) vive all'interno di un unico file altamente strutturato.
 *   **Vanilla CSS** (\styles.css\): Zero preprocessori o Tailwind. Solo le moderne custom properties e Grid/Flexbox per un layout rigorosamente mobile-first.
-*   **Visual Assets**: Script in PowerShell (\extract-role-icons.ps1\) per il pixel-perfect cropping delle icone dalla master sprite-sheet in \ssets/source/\ ad uso PWA.
 
 ## 🎭 Ruoli Supportati (Ruleset V1 IT)
 
@@ -68,4 +71,4 @@ Questo progetto adotta deliberatamente un approccio **Zero-Build, Vanilla JS** m
 Feedback, pull requests per nuove feature, fix a bug sfuggenti nel ruleset o aggiunte di nuovi ruoli sono benvenuti. Se volete estendere i ruoli, la modifica si applica principalmente in \pp.js\ estendendo l'oggetto \ROLE_DEFS\ e la logica della fase Notte (\esolveNight\).
 
 ---
-Un progetto *Cardux* - © 2026
+Un progetto meta-ludico di *Massimo Cardolicchio* - © 2026
