@@ -1,7 +1,7 @@
 ﻿# Nightflow | The Werewolf Engine 🐺🌙
 
 <div align="center">
-  <img src="assets/cover/nightflow-cover.jpg" alt="Nightflow Cover" width="100%">
+  <img src="assets/cover/nightflow-cover.png" alt="Nightflow Cover" width="100%">
   <br><br>
   <img src="icons/icon.svg" alt="App Icon" width="64">
 </div>
@@ -68,7 +68,9 @@ Questo progetto adotta deliberatamente un approccio **Zero-Build, Vanilla JS** m
 
 ## 🤝 Contribuzione
 
-Feedback, pull requests per nuove feature, fix a bug sfuggenti nel ruleset o aggiunte di nuovi ruoli sono benvenuti. Se volete estendere i ruoli, la modifica si applica principalmente in \pp.js\ estendendo l'oggetto \ROLE_DEFS\ e la logica della fase Notte (\esolveNight\).
+Feedback, pull requests per nuove feature, fix a bug sfuggenti nel ruleset o aggiunte di nuovi ruoli sono benvenuti. Se volete estendere i ruoli, la modifica si applica principalmente in \pp.js\ estendendo l'oggetto \ROLE_DEFS\ e la logica della fase Notte (\
+esolveNight\).
 
 ---
 Un progetto meta-ludico di *Massimo Cardolicchio* - © 2026
+
