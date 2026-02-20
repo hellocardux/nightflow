@@ -1,0 +1,18 @@
+{
+  "name": "Nightflow | The Werewolf Engine",
+  "short_name": "Nightflow",
+  "description": "Assistente moderatore per Lupus in Tabula",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#091120",
+  "theme_color": "#0a152c",
+  "lang": "it",
+  "icons": [
+    {
+      "src": "./icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
